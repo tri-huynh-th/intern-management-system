@@ -1,0 +1,12 @@
+# Bật rewrite engine
+RewriteEngine On
+
+# Đặt thư mục gốc của ứng dụng
+RewriteBase /intern_management_system/
+
+# Ẩn file index.php khỏi URL
+# RewriteRule ^(login|logout|dashboard)$ index.php [L,QSA]
+# RewriteRule ^(login|logout|dashboard)/(.*)$ index.php [L,QSA]
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.*)$ index.php [QSA,L]
